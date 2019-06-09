@@ -691,6 +691,11 @@ Prefab:
       propertyPath: m_TagString
       value: WebSocketManager
       objectReference: {fileID: 0}
+    - target: {fileID: 114819149891063430, guid: 9fca7082cb7d331468a17b6b96aa0cf3,
+        type: 2}
+      propertyPath: uri
+      value: ws://192.168.11.30:1880/testws
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9fca7082cb7d331468a17b6b96aa0cf3, type: 2}
   m_IsPrefabParent: 0
@@ -709,7 +714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12762b4afc3e29d4aa65c6a147a803e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  tank_scale: 5
   start_x: 0
   start_y: 0
   start_z: 0

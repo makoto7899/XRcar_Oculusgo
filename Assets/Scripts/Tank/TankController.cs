@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TankController : MonoBehaviour {
-    public float speed = 3.0f;
+    public float tank_scale = 10.0f;
 
     // 初期位置、初期回転
     public float start_x = 0;
@@ -61,7 +61,7 @@ public class TankController : MonoBehaviour {
 
         //           　　　　　　　　　　　　　　　　　　       相対距離
         // カーソル位置　= Holo座標でのカーソル原点 + (現在のiPhoneの位置 - 再設定iPhone原点)
-        this.gameObject.GetComponent<Rigidbody>().MovePosition(new Vector3(start_x + (position_and_rot[0] - previousPosition[0]), start_y, start_z - (position_and_rot[2] - previousPosition[2])) * 10);
+        this.gameObject.GetComponent<Rigidbody>().MovePosition(new Vector3(start_x + (position_and_rot[0] - previousPosition[0]), start_y, start_z - (position_and_rot[2] - previousPosition[2])) * tank_scale);
         //this.gameObject.transform.position = new Vector3(start_x + (position_and_rot[0] - previousPosition[0]), start_y + (position_and_rot[1] - previousPosition[1]), start_z - (position_and_rot[2] - previousPosition[2]));
 
         tempRotation = Quaternion.AngleAxis(position_and_rot[3] * Mathf.Rad2Deg, new Vector3(0, -1, 0));
