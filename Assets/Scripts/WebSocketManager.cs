@@ -54,10 +54,10 @@ public class WebSocketManager : MonoBehaviour
                     roty = Mathf.Ceil(roty * 10) / 10;
 
 
-                    objectiPhone.SendMessage("locateAndRotateCursor", position_and_rot);
+                    //objectiPhone.SendMessage("locateAndRotateCursor", position_and_rot);
                     objectTank.SendMessage("locateAndRotateCursor", position_and_rot);
                     objectTextPanel.SendMessage("receiveMessage", ("x:" + x.ToString() + " y:" + y.ToString() + " z:" + z.ToString()));
-                    Debug.Log(state.ToString());
+                    //Debug.Log(state.ToString());
                 }
 
 

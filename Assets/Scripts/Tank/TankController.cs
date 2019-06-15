@@ -24,6 +24,9 @@ public class TankController : MonoBehaviour {
     private Quaternion tempRotation;
     private Vector3 tempPosition;
 
+    [SerializeField]
+    private GameObject websokectmanager;
+
     // Use this for initialization
     void Start () {
         this.gameObject.transform.position = new Vector3(start_x, start_y, start_z);
@@ -68,6 +71,27 @@ public class TankController : MonoBehaviour {
         this.gameObject.GetComponent<Rigidbody>().MoveRotation(tempRotation);
         //this.gameObject.transform.rotation = tempRotation;
 
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "FixedObject")
+        {
+            string itemJson = "{ \"key\": \"event\", \"event\": \"collisionEnter\"}";
+            websokectmanager.GetComponent<WebSocketManager>().SendCommand(itemJson);
+            Debug.Log("OnTriggerEnter");
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "FixedObject")
+        {
+            string itemJson = "{ \"key\": \"event\", \"event\": \"collisionExit\"}";
+            websokectmanager.GetComponent<WebSocketManager>().SendCommand(itemJson);
+        }
 
     }
 }
